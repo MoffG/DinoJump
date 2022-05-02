@@ -22,9 +22,18 @@ class Character:
 class Player(Character):
     def __init__(self, x, y):
         super().__init__(x, y)
-        self.img = dinoImgList[0]
+        self.currentImg = 0
+        self.img = dinoImgList[self.currentImg]
     
     def nextAnimation(self):
+        if self.currentImg == 0:
+            self.currentImg += 1
+        else:
+            self.currentImg -= 1
+        
+        self.img = dinoImgList[self.currentImg]
+
+    def jump(self):
         pass
 
         
